@@ -1,0 +1,39 @@
+/*
+Java Print Files
+
+In the Java file, 
+write a program to first create a file in the current directory with the name newfile.txt filled with any content. 
+Then print out all the files in the current directory in alphabetical order so that they are in the following format: FILENAME, FILENAME, ...
+
+Example Output
+file.js, helloworld.txt, abc.txt
+
+*/
+
+
+import java.util.*; 
+import java.io.*;
+
+class Main {  
+  public static void main (String[] args) { 
+        File newfile = new File("./newfile.txt");
+        try {
+            newfile.createNewFile();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        File dir = new File("./");
+        File[] listOfFiles = dir.listFiles();
+        Arrays.sort(listOfFiles);
+
+        for(int i=0; i< listOfFiles.length; ++i)
+        {
+          if(i==0)
+          {System.out.print(listOfFiles[i].getName());}
+          else
+          {System.out.print(", "+listOfFiles[i].getName());}
+        }
+
+  }   
+}
