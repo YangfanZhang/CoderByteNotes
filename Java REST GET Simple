@@ -1,0 +1,46 @@
+/*
+Java REST GET Simple
+
+In the Java file, write a program to perform a GET request on the route 
+https://coderbyte.com/api/challenges/json/rest-get-simple and then print to the console the hobbies property in the following format: ITEM1, ITEM2, ...
+
+*/
+
+
+
+
+import java.util.*; 
+import java.io.*;
+import java.net.*;
+
+class Main {  
+  public static void main (String[] args) { 
+    String thisLine = null;
+    System.setProperty("http.agent", "Chrome");
+    try { 
+      URL url = new URL("https://coderbyte.com/api/challenges/json/rest-get-simple");
+      try {
+        URLConnection connection = url.openConnection();
+        InputStream inputStream = connection.getInputStream();
+        InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
+        BufferedReader bufferedReader = new  BufferedReader(inputStreamReader);
+        
+      while ((thisLine = bufferedReader.readLine()) != null) {
+            String temp = thisLine.substring(thisLine.indexOf("hobbies")+10, thisLine.length()-2);
+            temp = temp.replace("\"", "");
+            String[] split = temp.split(",");
+            for(int i =0; i < split.length;++i){
+            if(i==0)
+            {System.out.print(split[i]);}
+            else
+            {System.out.print(", "+split[i]);}
+        }
+         } 
+      } catch (IOException ioEx) {
+        System.out.println(ioEx);
+      }
+    } catch (MalformedURLException malEx) {
+      System.out.println(malEx);
+    }
+  }   
+}
