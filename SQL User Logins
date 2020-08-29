@@ -1,0 +1,24 @@
+
+SQL User Logins
+
+Your table: maintable_QR5FK
+MySQL version: 5.5.56-log
+
+In this MySQL challenge, the table provided shows all new users signing up on a specific date in the format YYYY-MM-DD. 
+Your query should output the change from one month to the next. 
+Because the first month has no preceding month, your output should skip that row. 
+Your output should look like the following table. 
+
+/* write your SQL query below */
+
+SELECT MONTHNAME(DateJoined) Month,
+  (SELECT COUNT(*) FROM maintable_QR5FK t2
+    WHERE MONTH(t2.DateJoined)=MONTH(t.DateJoined))
+  -
+  (SELECT COUNT(*) FROM maintable_QR5FK t2
+    WHERE MONTH(t2.DateJoined)=MONTH(t.DateJoined)-1)
+  MonthToMonthChange
+FROM maintable_QR5FK t
+GROUP BY Month
+HAVING Month<>'January'
+ORDER BY MONTH(DateJoined)
