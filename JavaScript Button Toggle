@@ -1,0 +1,13 @@
+import $ from "jquery";
+
+const rootApp = document.getElementById("root");
+rootApp.innerHTML = '<button>ON</button>';
+
+$("button").click(()=>{
+  if($("button").html() === "ON")
+  {
+    $("button").html("OFF");
+  }else{
+    $("button").html("ON");
+  }
+})
