@@ -34,6 +34,13 @@ class Main {
           else
           {System.out.print(", "+listOfFiles[i].getName());}
         }
+        
+        /*
+        ArrayList<String> fileNames = new ArrayList<String>();
+        for (File file : filesArray) {
+           fileNames.add(file.getName());
+        }
+        System.out.println(String.join(", ", fileNames));*/
 
   }   
 }
