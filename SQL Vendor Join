@@ -1,0 +1,16 @@
+
+
+/* Your table: maintable_LRF6B
+MySQL version: 5.5.56-log
+
+In this MySQL challenge, your query should return the vendor information along with the values from the table cb_vendorinformation. You should combine the values of the two tables based on the GroupID column. The final query should only print out the GroupID, CompanyName, and final count of all rows that are grouped into each company name under a column titled Count. The output table should be then sorted by the Count column and then sorted by GroupID so that a higher number appears first. 
+
+Your output should look like the following table.*/
+
+SELECT t1.GroupID, vi.CompanyName,
+COUNT(*) as Count
+FROM maintable_LRF6B t1
+JOIN cb_vendorinformation vi
+ON t1.GroupID = vi.GroupID
+GROUP BY CompanyName
+ORDER BY Count ASC, GroupID ASC
