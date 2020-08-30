@@ -1,6 +1,13 @@
-function AlphabetSoup(str) { 
-  return str.split("").sort().join("");
+function VowelCount(str) { 
+  if(str.match(/[a|e|i|o|u]/gi) === null)
+  {
+    return 0;
+  }else{
+    return str.match(/[a|e|i|o|u]/gi).length;
+  }
 }
    
 // keep this function call here 
-console.log(AlphabetSoup(readline()));
+console.log(VowelCount(readline()));
+   
+
