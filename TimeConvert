@@ -1,0 +1,8 @@
+function TimeConvert(num) { 
+  var quotient = ~~(num / 60); 
+  var remainder = num%60;
+  return quotient + ':' + remainder; 
+}
+   
+// keep this function call here 
+console.log(TimeConvert(readline()));
