@@ -1,0 +1,23 @@
+/*
+Letter Capitalize
+
+Have the function LetterCapitalize(str) take the str parameter being passed and capitalize the first letter of each word. Words will be separated by only one space.
+Examples
+
+Input: "hello world" 
+Output: Hello World
+Input: "i ran there" 
+Output: I Ran There
+*/
+
+
+
+
+function LetterCapitalize(str) { 
+  var arr = str.split(' ');
+  var arrC = arr.map(item => item[0].toUpperCase()+ item.slice(1));
+  return arrC.join(' ');
+}
+   
+// keep this function call here 
+console.log(LetterCapitalize(readline()));
