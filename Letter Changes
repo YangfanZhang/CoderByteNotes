@@ -1,0 +1,36 @@
+/*
+
+Letter Changes
+
+Have the function LetterChanges(str) take the str parameter being passed and modify it using the following algorithm. Replace every letter in the string with the letter following it in the alphabet (ie. c becomes d, z becomes a). Then capitalize every vowel in this new string (a, e, i, o, u) and finally return this modified string.
+Examples
+
+Input: "hello*3" 
+Output: Ifmmp*3
+Input: "fun times!" 
+Output: gvO Ujnft!
+
+*/
+
+
+function LetterChanges(str) { 
+    var next = str.replace(/[a-zA-Z]/gi, returnNextAlphabet);
+    var result = next.replace(/[a|e|i|o|u]/gi, capitalizeVowel);
+    return result;
+}
+
+function returnNextAlphabet(a){
+  if(a === "z"){
+    return "a";
+  }
+  else{
+    return String.fromCharCode(a.charCodeAt(0) + 1);
+  }
+}
+
+function capitalizeVowel(a){
+    return a.toUpperCase();
+}
+   
+// keep this function call here 
+console.log(LetterChanges(readline()));
